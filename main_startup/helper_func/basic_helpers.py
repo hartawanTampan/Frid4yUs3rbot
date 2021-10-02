@@ -23,7 +23,7 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message,
 )
-from main_startup import Friday, Friday2, Friday3, Friday4, Friday5
+from main_startup import Friday, Friday2, Friday3, Friday4, Friday5, Friday6
 from database.sudodb import sudo_list
 from main_startup.config_var import Config
 import multiprocessing
