@@ -23,7 +23,7 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message,
 )
-from main_startup import Friday, Friday2, Friday3, Friday4
+from main_startup import Friday, Friday2, Friday3, Friday4, Friday5
 from database.sudodb import sudo_list
 from main_startup.config_var import Config
 import multiprocessing
@@ -32,7 +32,7 @@ import functools
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
-max_workers = multiprocessing.cpu_count() * 5
+max_workers = multiprocessing.cpu_count() * 10
 exc_ = ThreadPoolExecutor(max_workers=max_workers)
 
 
@@ -141,6 +141,12 @@ async def get_all_pros() -> list:
     if Friday4:
         ujwal4 = Friday4.me
         users.append(ujwal4.id)
+    if Friday5:
+        ujwal5 = Friday5.me
+        users.append(ujwal5.id)
+    if Friday6:
+        ujwal6 = Friday6.me
+        users.append(ujwal6.id)
     return users
 
 
