@@ -127,6 +127,27 @@ async def run_bot():
             logging.error("[USER] - Failed To Load : " + f"{nm} - {str(e)}")
     if Config.LOAD_UNOFFICIAL_PLUGINS:
         await load_unofficial_modules()
+    
+    
+
+    async def start_me():
+        for xbot in bots:
+            try:
+                import logging, asyncio
+                from . import LOG_GRP
+                await xbot.start()
+                xbot.me = await xbot.get_me()
+                await asyncio.sleep(2)
+                await xbot.join_chat("AlphaXProject")
+                await xbot.send_message(LOG_GRP, "hello master i am alive!")
+            except Exception as a:
+                # LOGGER("main").warning(a)
+                print(f"Wah error kak, semoga cepat fix ya kak!\n{a}\n")
+                logging.error(a, exc_info=True)
+                pass
+    
+    await start_me()
+
     full_info = f"""Friday Based On Pyrogram V{__version__}
 Python Version : {platform.python_version()}
 Friday Version : {friday_version}
@@ -134,7 +155,6 @@ You Can Visit @FridaySupportOfficial For Updates And @FridayChat For Any Query /
 """
     logging.info(full_info)
     await pyrogram.idle()
-
-
+    
 if __name__ == "__main__":
     Friday.loop.run_until_complete(run_bot())
