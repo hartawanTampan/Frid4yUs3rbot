@@ -114,3 +114,5 @@ if Config.BOT_TOKEN:
     )
 else:
     bot = None
+    
+bots = [xbot for xbot in [Friday1, Friday2, Friday3, Friday4, Friday5, Friday6] if xbot]
