@@ -26,7 +26,7 @@ logging.basicConfig(
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 logging.getLogger("apscheduler").setLevel(logging.ERROR)
 
-
+LOOP = asyncio.get_event_loop_policy().get_event_loop()
 mongo_client = motor.motor_asyncio.AsyncIOMotorClient(Config.MONGO_DB)
 
 CMD_LIST = {}
